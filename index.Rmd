@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Nintendo fun
 ```{r}
+library(tidyverse)
 library(rvest)
 
 #define url
@@ -19,7 +20,8 @@ webpage <- read_html(url)
 table <- html_nodes(webpage, ".roundy.sortable") %>% 
   html_table(fill = TRUE)
 
-df_acnh <- table[[1]]
+characters <- table[[1]]
+#write_csv(characters, "data/characters.csv")
 
 ```
 
